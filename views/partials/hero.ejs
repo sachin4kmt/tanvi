@@ -1,0 +1,206 @@
+<section class="hero">
+    <div class="container">
+        <div class="hero-wrapper">
+            
+            <div class="hero-content">
+                <div class="widget-label reveal">
+                    &gt; <%= data.role %>
+                </div>
+
+                <h1 class="reveal">
+                    I'm <span class="gradient-text"><%= data.name %></span>
+                </h1>
+                
+                <p class="hero-summary reveal">
+                    <%= data.summary %>
+                </p>
+
+                <div class="hero-meta reveal">
+                    <div class="meta-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span><%= data.location %></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-terminal"></i>
+                        <span><%= data.experience_years %> Experience</span>
+                    </div>
+                </div>
+
+                <div class="hero-btns reveal">
+                    <a href="mailto:<%= data.email %>" class="btn-primary">
+                        Email <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://<%= data.linkedin %>" target="_blank" class="btn-linkedin">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    
+                    <a href="/download-resume" class="btn-secondary-pdf">
+                        <i class="fas fa-cloud-arrow-down"></i> Resume PDF
+                    </a>
+
+                    <button onclick="sharePortfolio()" class="btn-share-profile">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                </div>
+            </div>
+
+            <div class="hero-visual reveal">
+                <div class="tech-card">
+                    <div class="card-header">
+                        <div class="dots"><span></span><span></span><span></span></div>
+                        <span class="file-name"><%= data.name.toLowerCase() %>_profile.dart</span>
+                    </div>
+                    <div class="card-body">
+                        <pre><code><span class="keyword">class</span> <span class="class-name">SeniorFlutterDev</span> {
+  String name = <span class="string">'<%= data.name %>'</span>;
+  List&lt;String&gt; stack = [
+    <span class="string">'Clean Architecture'</span>, <span class="string">'GetX'</span>, <span class="string">'Dio'</span>
+  ];
+  <span class="keyword">bool</span> isReadyToImpact = <span class="keyword">true</span>;
+}</code></pre>
+                    </div>
+                </div>
+                <div class="hero-glow"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* SHARED BUTTON BASICS */
+    .btn-linkedin, .btn-secondary-pdf, .btn-share-profile {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 24px;
+        border-radius: 14px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        color: #fff;
+        justify-content: center;
+    }
+
+    .btn-linkedin { background: rgba(10, 102, 194, 0.1); border: 1px solid rgba(10, 102, 194, 0.3); }
+    
+    /* Fixed tag styles to match anchor element tags */
+    .btn-secondary-pdf { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); }
+    .btn-secondary-pdf i { color: #40D1FB; } /* Changed to match Flutter sky theme accents */
+    
+    .btn-share-profile { background: rgba(2, 123, 227, 0.1); border: 1px solid var(--flutter-cyan); }
+
+    /* HERO LAYOUT */
+    .hero { padding: 80px 0; position: relative; overflow: hidden; }
+    
+    .hero-wrapper { 
+        display: grid; 
+        grid-template-columns: 1.2fr 0.8fr; 
+        gap: 60px; 
+        align-items: center; 
+    }
+
+    .widget-label { 
+        letter-spacing: 2px; 
+        text-transform: uppercase; 
+        font-weight: 700; 
+        margin-bottom: 10px; 
+        color: var(--flutter-cyan); 
+        font-family: 'JetBrains Mono', monospace;
+    }
+
+    h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 25px; letter-spacing: -2px; }
+
+    .gradient-text {
+        background: linear-gradient(90deg, var(--flutter-cyan), #40D1FB);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .hero-summary { opacity: 0.8; margin-top: 10px; margin-bottom: 30px; font-size: 1.1rem; max-width: 600px; }
+
+    /* META & BUTTONS */
+    .hero-meta { display: flex; gap: 25px; margin-bottom: 30px; flex-wrap: wrap; }
+    .meta-item { display: flex; align-items: center; gap: 10px; color: #666; font-size: 0.9rem; font-family: 'Space Mono', monospace; }
+    .meta-item i { color: var(--flutter-cyan); }
+
+    .hero-btns { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+
+    .btn-primary {
+        background: var(--flutter-cyan);
+        color: white;
+        padding: 14px 30px;
+        border-radius: 14px;
+        text-decoration: none;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    /* TECH CARD */
+    .tech-card { background: #0D0D0D; border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; overflow: hidden; transition: transform 0.5s ease; }
+    .tech-card:hover { transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); }
+    .card-header { background: #1A1A1A; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; }
+    .dots span { width: 10px; height: 10px; border-radius: 50%; background: #333; display: inline-block; margin-right: 2px; }
+    .file-name { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #666; }
+    .card-body { padding: 25px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; overflow-x: auto; }
+    .keyword { color: #C678DD; }
+    .class-name { color: #E5C07B; }
+    .string { color: #98C379; }
+    .comment { color: #5C6370; }
+
+    .hero-glow {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: 120%; height: 120%;
+        background: radial-gradient(circle, rgba(1, 200, 255, 0.1) 0%, transparent 70%);
+        z-index: -1;
+    }
+
+    /* RESPONSIVE FIXES */
+    @media (max-width: 992px) {
+        .hero-wrapper { grid-template-columns: 1fr; gap: 50px; text-align: center; }
+        .hero-meta, .hero-btns { justify-content: center; }
+        .hero-summary { margin-left: auto; margin-right: auto; }
+        .hero-visual { order: -1; max-width: 500px; margin: 0 auto; }
+    }
+
+    @media (max-width: 600px) {
+        .hero { padding: 40px 0; }
+        .hero-btns { flex-direction: column; align-items: stretch !important; gap: 12px !important; }
+        .btn-primary, .btn-linkedin, .btn-secondary-pdf, .btn-share-profile { width: 100%; }
+        h1 { font-size: 2.2rem; }
+        .hero-meta { gap: 15px; }
+    }
+
+    /* PRINT SETTINGS */
+    @media print {
+        html, body { background-color: #040d16 !important; color: white !important; -webkit-print-color-adjust: exact !important; }
+        .hero-btns, nav, footer, .hero-glow { display: none !important; }
+        .hero-wrapper { grid-template-columns: 1fr !important; }
+        .hero-visual { display: block !important; margin-top: 30px; }
+        .tech-card { background: #000 !important; border: 1px solid #333 !important; }
+    }
+</style>
+
+<script>
+    async function sharePortfolio() {
+        const shareData = {
+            title: '<%= data.name %> | Portfolio',
+            text: '<%= data.summary %>',
+            url: window.location.href
+        };
+        try {
+            if (navigator.share) {
+                await navigator.share(shareData);
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert("Link copied to clipboard!");
+            }
+        } catch (err) { console.error(err); }
+    }
+</script>

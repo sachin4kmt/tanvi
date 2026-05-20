@@ -1,0 +1,173 @@
+<section style="margin-bottom: 60px;">
+    <!-- SECTION HEADING -->
+    <h2 class="section-title" style="font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 30px; display: flex; align-items: center; gap: 15px;">
+        <span style="color: var(--flutter-cyan);">03.</span> Experience 
+    </h2>
+
+    <div class="experience-list">
+        <% data.experience.forEach(function(exp, index) { %>
+            <div class="project-card reveal">
+                
+                <!-- TOP ROW: COMPANY & DATES -->
+                <div class="exp-header">
+                    <div class="exp-title-box">
+                        <a href="<%= exp.website %>" target="_blank" class="company-link">
+                            <%= exp.company %> <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <!-- DESIGNATION / TITLE -->
+                        <p class="exp-role">
+                            <%= exp.role %>
+                        </p>
+                    </div>
+
+                    <!-- DURATION TAG -->
+                    <div class="exp-duration">
+                        <span><%= exp.duration %></span>
+                    </div>
+                </div>
+
+                <!-- DESCRIPTION / DETAILS -->
+                <div class="exp-details-box">
+                    <p class="exp-text">
+                        <%= exp.details %>
+                    </p>
+                </div>
+
+                <!-- SUBTLE HOVER GLOW -->
+                <div class="card-glow"></div>
+            </div>
+        <% }); %>
+    </div>
+</section>
+
+<style>
+    .experience-list {
+        display: flex; 
+        flex-direction: column; 
+        gap: 20px;
+    }
+
+    /* Base Card Style */
+    .project-card {
+        padding: 30px; 
+        display: block; 
+        position: relative;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-left: 4px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+    }
+
+    .exp-header {
+        display: flex; 
+        justify-content: space-between; 
+        align-items: flex-start; 
+        margin-bottom: 12px; 
+        flex-wrap: wrap; 
+        gap: 15px;
+    }
+
+    .company-link {
+        color: var(--flutter-cyan); 
+        font-weight: 800; 
+        text-decoration: none; 
+        font-size: clamp(1.4rem, 4vw, 1.8rem); 
+        display: flex; 
+        align-items: center; 
+        gap: 10px;
+        transition: color 0.3s ease;
+    }
+
+    .company-link i {
+        font-size: 0.8rem; 
+        opacity: 0.5;
+    }
+
+    .company-link:hover {
+        color: #fff !important;
+    }
+
+    .exp-role {
+        font-weight: 700; 
+        font-size: 1.1rem; 
+        color: #fff; 
+        margin-top: 8px; 
+        letter-spacing: 0.5px;
+    }
+
+    .exp-duration {
+        background: rgba(255, 255, 255, 0.05); 
+        padding: 8px 16px; 
+        border-radius: 10px; 
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        flex-shrink: 0;
+    }
+
+    .exp-duration span {
+        font-family: 'Space Mono', monospace; 
+        font-size: 0.85rem; 
+        color: var(--flutter-cyan); 
+        font-weight: bold;
+    }
+
+    .exp-details-box {
+        border-left: 3px solid rgba(2, 123, 227, 0.3); 
+        padding-left: 20px; 
+        margin-top: 25px;
+    }
+
+    .exp-text {
+        color: #aaa; 
+        font-size: 0.95rem; 
+        line-height: 1.8; 
+        white-space: pre-line;
+    }
+
+    /* Hover Interaction */
+    @media (min-width: 992px) {
+        .project-card:hover {
+            border-left: 8px solid var(--flutter-cyan);
+            background: rgba(2, 123, 227, 0.04);
+            padding-left: 45px;
+            transform: translateX(10px);
+        }
+    }
+
+    /* Mobile Responsive Adjustments */
+    @media (max-width: 768px) {
+        .project-card {
+            padding: 20px;
+            border-left-width: 4px;
+        }
+        
+        .exp-header {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .exp-duration {
+            align-self: flex-start;
+            padding: 4px 12px;
+        }
+
+        .exp-details-box {
+            padding-left: 15px;
+            margin-top: 15px;
+        }
+
+        .exp-text {
+            font-size: 0.9rem;
+        }
+    }
+
+    /* Print Logic */
+    @media print {
+        .project-card {
+            background: #000 !important;
+            border: 1px solid #333 !important;
+            page-break-inside: avoid;
+        }
+    }
+</style>

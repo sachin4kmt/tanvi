@@ -1,0 +1,21 @@
+<section style="margin-bottom: 100px;">
+    <h2 class="section-title" style="font-size: 2.5rem; display: flex; align-items: center; gap: 20px;">
+        <span style="color: var(--flutter-cyan);">02.</span> Technical Stack
+    </h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+        <% data.skills.forEach(function(skill) { %>
+            <div class="skill-item reveal" style="background: var(--card-bg); padding: 25px; border-radius: 24px; text-align: center; border: 1px solid transparent; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div style="width: 40px; height: 40px; background: var(--flutter-cyan); margin: 0 auto 15px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"></div>
+                    
+                    <p style="font-weight: bold; font-size: 1.1rem; color: #fff; margin-bottom: 10px;"><%= skill.category %></p>
+                </div>
+                
+                <div style="color: var(--flutter-cyan); font-size: 0.85rem; margin-top: 5px; line-height: 1.5; font-family: monospace;">
+                    <%= skill.items.join(', ') %>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</section>

@@ -1,0 +1,27 @@
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Scroll reveal for sections
+    gsap.utils.toArray(".reveal").forEach((elem) => {
+        gsap.to(elem, {
+            scrollTrigger: { 
+                trigger: elem, 
+                start: "top 85%", 
+                toggleActions: "play none none none" 
+            },
+            opacity: 1, 
+            y: 0, 
+            duration: 1, 
+            ease: "power3.out"
+        });
+    });
+
+    // Hero Entry Animation
+    gsap.from("h1", { 
+        duration: 1.5, 
+        y: 50, 
+        opacity: 0, 
+        stagger: 0.2, 
+        ease: "expo.out" 
+    });
+</script>

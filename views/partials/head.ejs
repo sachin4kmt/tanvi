@@ -1,58 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Technical Identity -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- Dynamic Title: Pulling from Senior Flutter Developer role -->
     <title><%= data.name %> | <%= data.role %></title>
     
-    <!-- SEO Meta Tags -->
     <meta name="title" content="<%= data.name %> - Portfolio">
     <meta name="description" content="<%= data.summary %>">
     <meta name="keywords" content="Flutter, Dart, GetX, Clean Architecture, Mobile App Development, <%= data.location %>, Senior Engineer, Mac mini M4, B2B Apps, Fintech">
     <meta name="author" content="<%= data.name %>">
 
-    <!-- Open Graph / LinkedIn / Social Sharing -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://<%= data.github %>">
     <meta property="og:title" content="<%= data.name %> | <%= data.role %>">
     <meta property="og:description" content="Check out my production-grade Flutter apps built with Clean Architecture and SOLID principles.">
-    <meta property="og:image" content="/images/og-preview.png"> <!-- Make sure this image exists for LinkedIn previews -->
+    <meta property="og:image" content="/images/og-preview.png">
 
-    <!-- Twitter Optimization -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://<%= data.github %>">
     <meta property="twitter:title" content="<%= data.name %> | Flutter Expert">
     <meta property="twitter:description" content="<%= data.summary %>">
 
-    <!-- External Assets -->
-    <!-- GSAP: Critical for your "reveal" animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
-    <!-- Professional Typefaces -->
-    <!-- JetBrains Mono for Code, Space Mono for Stats/Dates, Plus Jakarta for UI -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome 6.4.2 (Latest Stable for Android/iOS icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-    <!-- Favicon & Brand Color -->
     <link rel="icon" type="image/png" href="/images/logo.png">
-    <meta name="theme-color" content="#027BE3"> <!-- Flutter Cyan for Mobile UI -->
+    <meta name="theme-color" content="#027BE3">
 
-    <!-- Core Design Tokens (CSS Variables) -->
     <style>
         :root {
             /* Primary Colors */
             --flutter-cyan: #027BE3;
             --flutter-sky: #40D1FB;
-            --bg-dark: #050505; /* Deeper black for high contrast */
+            --bg-dark: #050505; 
             --bg-card: rgba(255, 255, 255, 0.03);
             
             /* Text Colors */
@@ -67,19 +55,99 @@
             /* Logic for Scroll Reveal */
             --reveal-opacity: 0;
             --reveal-y: 30px;
+
+            /* Responsive Padding Variables */
+            --section-padding: 50px;
+            --container-padding: 16px; /* Optimized mobile horizontal clearance */
         }
 
-        /* Essential Reset for Dark Theme */
-        body {
+        /* Hard CSS Boundary Resets */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden; /* Hard block on cross-axis viewport spilling */
             background-color: var(--bg-dark);
             color: var(--white);
-            font-family: 'Plus+Jakarta+Sans', sans-serif;
-            margin: 0;
-            overflow-x: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
         }
 
-        /* Mono text for tech tags and terminal-style dates */
         .mono { font-family: 'Space Mono', monospace; }
         .code { font-family: 'JetBrains Mono', monospace; }
+
+        /* Universal Fluid Container Engine */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: var(--container-padding);
+            padding-right: var(--container-padding);
+            box-sizing: border-box;
+        }
+
+        section {
+            width: 100%;
+            max-width: 100vw;
+            padding-top: var(--section-padding);
+            padding-bottom: var(--section-padding);
+            box-sizing: border-box;
+            overflow: hidden; /* Safeguards inner structural floats */
+        }
+
+        .section-title {
+            font-size: clamp(1.6rem, 4vw, 2.6rem); /* Reduced slightly to stop title wrapping clipping */
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 35px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* ==========================================
+           RESPONSIVE STRUCTURAL BREAKPOINTS
+           ========================================== */
+
+        /* TABLET MONITOR MATRIX */
+        @media screen and (min-width: 768px) {
+            :root {
+                --section-padding: 80px;
+                --container-padding: 32px;
+            }
+            
+            .responsive-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        /* DESKTOP STACK */
+        @media screen and (min-width: 1024px) {
+            :root {
+                --section-padding: 100px;
+                --container-padding: 40px;
+            }
+
+            .responsive-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 35px;
+            }
+        }
+
+        /* IMAGE BOUNDARY COMPRESSION */
+        img, svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
     </style>
 </head>
+<body>

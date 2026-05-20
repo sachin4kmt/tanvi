@@ -1,21 +1,130 @@
-<section style="margin-bottom: 100px;">
-    <h2 class="section-title" style="font-size: 2.5rem; display: flex; align-items: center; gap: 20px;">
-        <span style="color: var(--flutter-cyan);">02.</span> Technical Stack
-    </h2>
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
-        <% data.skills.forEach(function(skill) { %>
-            <div class="skill-item reveal" style="background: var(--card-bg); padding: 25px; border-radius: 24px; text-align: center; border: 1px solid transparent; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between;">
-                <div>
-                    <div style="width: 40px; height: 40px; background: var(--flutter-cyan); margin: 0 auto 15px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"></div>
+<section class="tech-stack-section">
+    <div class="container">
+        
+        <h2 class="section-title" style="font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 35px; display: flex; align-items: center; gap: 15px;">
+            <span style="color: var(--flutter-cyan);">02.</span> Technical Stack
+        </h2>
+        
+        <div class="skills-grid">
+            <% data.skills.forEach(function(skill) { %>
+                <div class="skill-item reveal">
+                    <div class="skill-content-wrapper">
+                        <div class="skill-hexagon"></div>
+                        
+                        <h3 class="skill-category-title"><%= skill.category %></h3>
+                    </div>
                     
-                    <p style="font-weight: bold; font-size: 1.1rem; color: #fff; margin-bottom: 10px;"><%= skill.category %></p>
+                    <div class="skill-tags-stream code">
+                        <%= skill.items.join(', ') %>
+                    </div>
                 </div>
-                
-                <div style="color: var(--flutter-cyan); font-size: 0.85rem; margin-top: 5px; line-height: 1.5; font-family: monospace;">
-                    <%= skill.items.join(', ') %>
-                </div>
-            </div>
-        <% }); %>
+            <% }); %>
+        </div>
+
     </div>
 </section>
+
+<style>
+    .tech-stack-section {
+        width: 100%;
+        margin-bottom: 60px;
+        box-sizing: border-box;
+    }
+
+    /* Production Grid Engine: Managed scaling parameters for PC, Tab, and Mobile */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Standalone Skill Item Box */
+    .skill-item {
+        background: var(--bg-card, rgba(255, 255, 255, 0.03)); /* Fixed token naming mismatch */
+        padding: 30px 24px;
+        border-radius: 24px;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: var(--transition-smooth, all 0.35s ease);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        min-width: 0; /* Strict boundary lock down */
+    }
+
+    .skill-content-wrapper {
+        width: 100%;
+    }
+
+    /* Hexagon Vector Mapping node */
+    .skill-hexagon {
+        width: 40px;
+        height: 40px;
+        background: var(--flutter-cyan);
+        margin: 0 auto 18px;
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        opacity: 0.9;
+        transition: transform 0.4s ease;
+    }
+
+    .skill-category-title {
+        font-weight: 800; 
+        font-size: 1.15rem; 
+        color: #fff; 
+        margin: 0 0 14px 0;
+        letter-spacing: -0.3px;
+        word-break: break-word;
+    }
+
+    /* Technical Items Text Field */
+    .skill-tags-stream {
+        color: var(--flutter-sky, #40D1FB); 
+        font-size: 0.85rem; 
+        margin-top: 10px; 
+        line-height: 1.6; 
+        font-family: 'JetBrains Mono', monospace;
+        word-break: break-word;
+        opacity: 0.85;
+        width: 100%;
+    }
+
+    /* Smooth Interaction Triggers on PC Monitors */
+    @media (min-width: 992px) {
+        .skill-item:hover {
+            border-color: rgba(2, 123, 227, 0.3);
+            background: rgba(2, 123, 227, 0.04);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-item:hover .skill-hexagon {
+            transform: rotate(15deg) scale(1.08);
+        }
+    }
+
+    /* Mobile Adaptations */
+    @media (max-width: 600px) {
+        .tech-stack-section { margin-bottom: 40px; }
+        .skills-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Drops dynamic width slightly to allow two columns on standard phones */
+            gap: 16px;
+        }
+        .skill-item {
+            padding: 24px 16px;
+            border-radius: 20px;
+        }
+        .skill-category-title { font-size: 1.05rem; margin-bottom: 10px; }
+        .skill-tags-stream { font-size: 0.8rem; }
+    }
+
+    @media (max-width: 380px) {
+        /* Force single column for extremely narrow viewports */
+        .skills-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

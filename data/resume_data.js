@@ -7,6 +7,7 @@ module.exports = {
     github: "github.com/tanvi-flutter",
     linkedin: "linkedin.com/in/tanvi-solanki-ab18a1187",
     phone: "+91 8209268460",
+    resume_pdf: "Tanvi_Resume.pdf",
 
     // Aapke professional philosophy ke according summary
     summary: "A technology-driven professional with 5+ years of experience in building high-performance, cross-platform mobile applications for Android and iOS using Flutter. Effective and efficient in end-to-end development of software products from requirement understanding, designing, coding, and support. Always eager to learn new technologies.",
@@ -33,7 +34,7 @@ module.exports = {
             companyId: "nbt",
             tag: "Apr 2022 – Aug 2022",
             description: "Educational app focused on interactive learning and personalized content delivery for students.",
-            tech: ["Blockchain", "Real-time Push", "Mining UI"],
+            tech: ["Flutter", "Education", "Interactive UI"],
             android_link: "",
             ios_link: "#",
             logo: "/images/sarasvathi/logo.png",
@@ -46,7 +47,7 @@ module.exports = {
             companyId: "nbt",
             tag: "Feb 2022 – Apr 2022",
             description: "Dating app for connecting people based on shared interests and preferences.",
-            tech: ["Blockchain", "Real-time Push", "Mining UI"],
+            tech: ["Flutter", "Social", "Matching"],
             android_link: "",
             ios_link: "#",
             logo: "/images/edamame/logo.png",

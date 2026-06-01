@@ -5,9 +5,15 @@
     padding: 0 clamp(16px, 4vw, 40px);
 }
 
-section {
+section,
+.site-footer {
     margin-bottom: var(--section-gap);
     overflow: hidden;
+    scroll-margin-top: 80px;
+}
+
+#main-content > .site-footer {
+    margin-bottom: 0;
 }
 
 @media (max-width: 600px) {

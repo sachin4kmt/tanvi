@@ -24,18 +24,31 @@
                         <i class="fas fa-terminal"></i>
                         <span><%= data.experience_years %> Experience</span>
                     </div>
+                    <% if (data.phone) { %>
+                        <div class="meta-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:<%= data.phone.replace(/\s/g, '') %>"><%= data.phone %></a>
+                        </div>
+                    <% } %>
                 </div>
 
                 <div class="hero-btns reveal">
                     <a href="mailto:<%= data.email %>" class="btn-primary">
                         Email <i class="fas fa-envelope"></i>
                     </a>
-                    <a href="https://<%= data.linkedin %>" target="_blank" class="btn-linkedin">
+                    <a href="https://<%= data.linkedin %>" target="_blank" rel="noopener noreferrer" class="btn-linkedin">
                         <i class="fab fa-linkedin"></i> LinkedIn
                     </a>
-                    <a href="/download-resume" class="btn-secondary-pdf">
-                        <i class="fas fa-cloud-arrow-down"></i> Resume PDF
-                    </a>
+                    <% if (data.github) { %>
+                        <a href="https://<%= data.github %>" target="_blank" rel="noopener noreferrer" class="btn-github">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    <% } %>
+                    <% if (data.resume_pdf) { %>
+                        <a href="/download-resume" class="btn-secondary-pdf">
+                            <i class="fas fa-cloud-arrow-down"></i> Resume PDF
+                        </a>
+                    <% } %>
                     <button type="button" onclick="sharePortfolio()" class="btn-share-profile">
                         <i class="fas fa-share-alt"></i> Share
                     </button>

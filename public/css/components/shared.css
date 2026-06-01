@@ -1,6 +1,7 @@
 /* Shared buttons */
 .btn-primary,
 .btn-linkedin,
+.btn-github,
 .btn-secondary-pdf,
 .btn-share-profile {
     display: inline-flex;
@@ -37,6 +38,17 @@
 .btn-linkedin:hover {
     background: rgba(10, 102, 194, 0.25);
     border-color: rgba(10, 102, 194, 0.5);
+}
+
+.btn-github {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fff;
+}
+
+.btn-github:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.25);
 }
 
 .btn-secondary-pdf {

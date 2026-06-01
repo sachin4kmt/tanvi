@@ -5,11 +5,28 @@
             <span class="site-header__role"><%= data.role %></span>
         </a>
 
-        <nav class="site-header__nav" aria-label="Page sections">
+        <button
+            type="button"
+            class="site-header__menu-btn"
+            id="nav-toggle"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            aria-label="Open menu"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-header__nav" id="site-nav" aria-label="Page sections">
             <a href="#projects">Projects</a>
             <a href="#technical-stack">Skills</a>
+            <% if ((data.languages && data.languages.length) || (data.awards && data.awards.length) || data.env) { %>
+                <a href="#highlights">Highlights</a>
+            <% } %>
             <a href="#experience">Experience</a>
             <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
         </nav>
     </div>
 </header>

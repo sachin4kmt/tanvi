@@ -1,0 +1,86 @@
+.highlights-section {
+    margin-bottom: var(--section-gap);
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(16px, 3vw, 24px);
+}
+
+.highlight-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: clamp(20px, 4vw, 28px);
+    transition: var(--transition-smooth);
+    min-width: 0;
+}
+
+.highlight-card__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(2, 123, 227, 0.12);
+    border: 1px solid rgba(2, 123, 227, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--flutter-cyan);
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+}
+
+.highlight-card__title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+    color: var(--white);
+}
+
+.highlight-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.highlight-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.highlight-list li:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.highlight-list__name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--white);
+}
+
+.highlight-list__meta {
+    font-size: 0.78rem;
+    color: var(--flutter-sky);
+    opacity: 0.9;
+}
+
+.env-principles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+@media (min-width: 992px) {
+    .highlight-card:hover {
+        border-color: rgba(2, 123, 227, 0.35);
+        transform: translateY(-4px);
+        background: rgba(2, 123, 227, 0.04);
+    }
+}

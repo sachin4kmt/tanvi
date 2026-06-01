@@ -5,14 +5,20 @@
     data-share-text="<%= data.summary %>"
 >
     <%- include('partials/header') %>
-    <div class="container">
+
+    <main id="main-content">
         <%- include('partials/hero') %>
         <%- include('partials/projects') %>
         <%- include('partials/skills') %>
+        <%- include('partials/highlights') %>
         <%- include('partials/experience') %>
         <%- include('partials/education') %>
         <%- include('partials/footer') %>
-    </div>
+    </main>
+
+    <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <%- include('partials/scripts') %>
 </body>

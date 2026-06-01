@@ -8,8 +8,13 @@
             <% data.skills.forEach(function(skill, i) { %>
                 <div class="skill-card-box reveal" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="<%= i * 50 %>">
                     <div class="skills-hexagon-icon"></div>
-                    <p class="skill-title-txt"><%= skill.category %></p>
-                    <p class="skill-level-badge mono"><%= skill.items.join(', ') %></p>
+                    <% if (skill.category) { %>
+                        <p class="skill-title-txt"><%= skill.category %></p>
+                        <p class="skill-level-badge mono"><%= skill.items.join(', ') %></p>
+                    <% } else { %>
+                        <p class="skill-title-txt"><%= skill.name %></p>
+                        <p class="skill-level-badge mono"><%= skill.level %></p>
+                    <% } %>
                 </div>
             <% }); %>
         </div>

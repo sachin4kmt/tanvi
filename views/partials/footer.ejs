@@ -1,7 +1,30 @@
-<footer class="site-footer">
+<footer id="contact" class="site-footer">
     <p class="widget-label">RETURN_CONTACT</p>
 
-    <h2 class="footer-email"><%= data.email %></h2>
+    <h2 class="footer-email">
+        <a href="mailto:<%= data.email %>"><%= data.email %></a>
+    </h2>
 
-    <p class="footer-copy">&copy; 2026 <%= data.name %>. All Rights Reserved.</p>
+    <div class="footer-social">
+        <% if (data.phone) { %>
+            <a href="tel:<%= data.phone.replace(/\s/g, '') %>" class="footer-social__link" aria-label="Phone">
+                <i class="fas fa-phone"></i>
+            </a>
+        <% } %>
+        <a href="https://<%= data.linkedin %>" target="_blank" rel="noopener noreferrer" class="footer-social__link" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <% if (data.github) { %>
+            <a href="https://<%= data.github %>" target="_blank" rel="noopener noreferrer" class="footer-social__link" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+        <% } %>
+        <% if (data.resume_pdf) { %>
+            <a href="/download-resume" class="footer-social__link" aria-label="Download resume PDF">
+                <i class="fas fa-file-pdf"></i>
+            </a>
+        <% } %>
+    </div>
+
+    <p class="footer-copy">&copy; <%= new Date().getFullYear() %> <%= data.name %>. All Rights Reserved.</p>
 </footer>

@@ -1,0 +1,77 @@
+<% if ((data.languages && data.languages.length) || (data.awards && data.awards.length) || data.env) { %>
+<section id="highlights" class="highlights-section">
+    <div class="container">
+        <h2 class="section-title">
+            <span class="accent-num">02b.</span> Highlights
+        </h2>
+
+        <div class="highlights-grid">
+            <% if (data.languages && data.languages.length) { %>
+                <div class="highlight-card reveal" data-aos="fade-up" data-aos-duration="600">
+                    <div class="highlight-card__icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 class="highlight-card__title">Languages</h3>
+                    <ul class="highlight-list">
+                        <% data.languages.forEach(function(lang) { %>
+                            <li>
+                                <span class="highlight-list__name"><%= lang.name %></span>
+                                <span class="highlight-list__meta mono"><%= lang.level %></span>
+                            </li>
+                        <% }); %>
+                    </ul>
+                </div>
+            <% } %>
+
+            <% if (data.awards && data.awards.length) { %>
+                <div class="highlight-card reveal" data-aos="fade-up" data-aos-duration="600" data-aos-delay="80">
+                    <div class="highlight-card__icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="highlight-card__title">Recognition</h3>
+                    <ul class="highlight-list">
+                        <% data.awards.forEach(function(award) { %>
+                            <li>
+                                <span class="highlight-list__name"><%= award.title %></span>
+                                <% if (award.organization) { %>
+                                    <span class="highlight-list__meta mono"><%= award.organization %></span>
+                                <% } %>
+                            </li>
+                        <% }); %>
+                    </ul>
+                </div>
+            <% } %>
+
+            <% if (data.env) { %>
+                <div class="highlight-card highlight-card--env reveal" data-aos="fade-up" data-aos-duration="600" data-aos-delay="160">
+                    <div class="highlight-card__icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="highlight-card__title">Dev Environment</h3>
+                    <ul class="highlight-list">
+                        <% if (data.env.machine) { %>
+                            <li>
+                                <span class="highlight-list__name">Machine</span>
+                                <span class="highlight-list__meta mono"><%= data.env.machine %></span>
+                            </li>
+                        <% } %>
+                        <% if (data.env.editor) { %>
+                            <li>
+                                <span class="highlight-list__name">Editor</span>
+                                <span class="highlight-list__meta mono"><%= data.env.editor %></span>
+                            </li>
+                        <% } %>
+                    </ul>
+                    <% if (data.env.principles && data.env.principles.length) { %>
+                        <div class="env-principles">
+                            <% data.env.principles.forEach(function(p) { %>
+                                <span class="tech-badge"><%= p %></span>
+                            <% }); %>
+                        </div>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</section>
+<% } %>

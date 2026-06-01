@@ -60,13 +60,105 @@
     white-space: nowrap;
 }
 
-.site-header__nav a:hover {
+.site-header__nav a:hover,
+.site-header__nav a.is-active {
     color: var(--flutter-cyan);
 }
 
+.site-header__nav a.is-active {
+    position: relative;
+}
+
+.site-header__nav a.is-active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 2px;
+    background: var(--flutter-cyan);
+    border-radius: 1px;
+}
+
+.site-header__menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.site-header__menu-btn span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--white);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.site-header__menu-btn.is-active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.site-header__menu-btn.is-active span:nth-child(2) {
+    opacity: 0;
+}
+
+.site-header__menu-btn.is-active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+body.nav-open {
+    overflow: hidden;
+}
+
 @media (max-width: 768px) {
+    .site-header__menu-btn {
+        display: flex;
+    }
+
     .site-header__nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min(300px, 85vw);
+        height: 100dvh;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+        padding: 80px 24px 32px;
+        background: rgba(5, 10, 15, 0.98);
+        border-left: 1px solid rgba(255, 255, 255, 0.08);
+        transform: translateX(100%);
+        transition: transform 0.35s var(--ease-out-expo, ease);
+        z-index: 99;
+    }
+
+    .site-header__nav.is-open {
+        transform: translateX(0);
+    }
+
+    .site-header__nav a {
+        padding: 14px 0;
+        font-size: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .site-header__nav a.is-active::after {
         display: none;
+    }
+
+    .site-header__nav a.is-active {
+        color: var(--flutter-sky);
     }
 }
 

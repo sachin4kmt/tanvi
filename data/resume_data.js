@@ -49,7 +49,7 @@ module.exports = {
             tech: ["Blockchain", "Real-time Push", "Mining UI"],
             android_link: "",
             ios_link: "#",
-            logo: "images/edamame/logo.png",
+            logo: "/images/edamame/logo.png",
             screenshots: [
                 "/images/edamame/splash.jpg",
             ]

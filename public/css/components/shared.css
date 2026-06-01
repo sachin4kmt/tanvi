@@ -1,0 +1,127 @@
+/* Shared buttons */
+.btn-primary,
+.btn-linkedin,
+.btn-secondary-pdf,
+.btn-share-profile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    background: var(--flutter-cyan);
+    color: white;
+    font-weight: 700;
+    gap: 10px;
+}
+
+.btn-primary:hover {
+    background: var(--flutter-sky);
+    color: #000;
+}
+
+.btn-linkedin {
+    background: rgba(10, 102, 194, 0.1);
+    border: 1px solid rgba(10, 102, 194, 0.3);
+    color: #fff;
+}
+
+.btn-linkedin:hover {
+    background: rgba(10, 102, 194, 0.25);
+    border-color: rgba(10, 102, 194, 0.5);
+}
+
+.btn-secondary-pdf {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.btn-secondary-pdf i {
+    color: var(--flutter-sky);
+}
+
+.btn-secondary-pdf:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-share-profile {
+    background: rgba(2, 123, 227, 0.1);
+    border: 1px solid var(--flutter-cyan);
+    color: #fff;
+}
+
+.btn-share-profile:hover {
+    background: rgba(2, 123, 227, 0.2);
+}
+
+/* Glass card base (shared by projects & experience) */
+.glass-card {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 32px;
+    padding: clamp(20px, 5vw, 45px);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: var(--transition-smooth);
+    overflow: hidden;
+    min-width: 0;
+}
+
+@media (min-width: 992px) {
+    .glass-card:hover {
+        border-color: var(--accent-glow);
+        transform: translateY(-6px);
+        background: rgba(255, 255, 255, 0.04);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* App store buttons */
+.app-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.app-btn {
+    flex: 1 1 130px;
+    min-width: 130px;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    padding: 12px 18px;
+    border-radius: 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition-smooth);
+}
+
+.app-btn:hover {
+    background: var(--flutter-cyan);
+    color: #000;
+    border-color: var(--flutter-cyan);
+}
+
+@media (max-width: 600px) {
+    .app-btn {
+        width: 100%;
+        flex: none;
+    }
+}

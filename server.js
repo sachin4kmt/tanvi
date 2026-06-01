@@ -11,6 +11,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/aos', express.static(path.join(__dirname, 'node_modules', 'aos')));
 
 // Routes
 app.use('/', resumeRoutes);

@@ -1,0 +1,33 @@
+:root {
+    /* Brand palette */
+    --flutter-blue: #02569B;
+    --flutter-cyan: #027BE3;
+    --flutter-sky: #40D1FB;
+    --accent-glow: rgba(1, 200, 255, 0.35);
+
+    /* Surfaces */
+    --bg-dark: #050a0f;
+    --bg-card: rgba(255, 255, 255, 0.02);
+    --glass-border: rgba(255, 255, 255, 0.08);
+
+    /* Typography */
+    --white: #ffffff;
+    --text-dim: #a0a0a0;
+    --text-muted: #555555;
+
+    /* Motion */
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-smooth: all 0.4s var(--ease-smooth);
+    --reveal-y: 28px;
+
+    /* Layout */
+    --container-max: 1200px;
+    --section-gap: clamp(60px, 10vw, 100px);
+
+    /* Breakpoints (reference only) */
+    --bp-sm: 480px;
+    --bp-md: 768px;
+    --bp-lg: 992px;
+    --bp-xl: 1200px;
+}

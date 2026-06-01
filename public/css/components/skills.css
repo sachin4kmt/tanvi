@@ -1,0 +1,74 @@
+.skills-grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(12px, 3vw, 20px);
+    width: 100%;
+}
+
+.skill-card-box {
+    background: var(--bg-card);
+    padding: clamp(15px, 4vw, 25px);
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.35s var(--ease-smooth);
+    min-width: 0;
+    position: relative;
+}
+
+.skills-hexagon-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--flutter-cyan);
+    margin: 0 auto 12px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    opacity: 0.85;
+    transition: transform 0.35s var(--ease-out-expo), background 0.3s ease;
+}
+
+.skill-title-txt {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--white);
+    margin: 0 0 6px;
+    word-break: break-word;
+    line-height: 1.4;
+}
+
+.skill-level-badge {
+    color: var(--flutter-sky);
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+@media (min-width: 992px) {
+    .skill-card-box:hover {
+        border-color: var(--flutter-cyan);
+        background: rgba(2, 123, 227, 0.05);
+        transform: translateY(-4px);
+    }
+
+    .skill-card-box:hover .skills-hexagon-icon {
+        transform: rotate(30deg) scale(1.1);
+        background: var(--flutter-sky);
+    }
+}
+
+@media (max-width: 360px) {
+    .skills-grid-wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
+        gap: 10px;
+    }
+
+    .skill-card-box {
+        padding: 12px 8px;
+        border-radius: 14px;
+    }
+
+    .skill-title-txt {
+        font-size: 0.85rem;
+    }
+}

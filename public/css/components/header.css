@@ -1,0 +1,85 @@
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(5, 10, 15, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 14px 0;
+}
+
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.site-header__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-decoration: none;
+    min-width: 0;
+}
+
+.site-header__name {
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    font-weight: 800;
+    color: var(--white);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.site-header__role {
+    font-size: 0.72rem;
+    color: var(--flutter-cyan);
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.site-header__nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 2vw, 24px);
+    flex-shrink: 0;
+}
+
+.site-header__nav a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: color 0.25s ease;
+    white-space: nowrap;
+}
+
+.site-header__nav a:hover {
+    color: var(--flutter-cyan);
+}
+
+@media (max-width: 768px) {
+    .site-header__nav {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-header {
+        padding: 12px 0;
+    }
+
+    .site-header__name {
+        font-size: 0.95rem;
+    }
+
+    .site-header__role {
+        font-size: 0.65rem;
+    }
+}

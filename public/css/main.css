@@ -1,0 +1,13 @@
+@import url('base/variables.css');
+@import url('base/reset.css');
+@import url('base/typography.css');
+@import url('layout/container.css');
+@import url('utilities/animations.css');
+@import url('components/shared.css');
+@import url('components/header.css');
+@import url('components/hero.css');
+@import url('components/projects.css');
+@import url('components/skills.css');
+@import url('components/experience.css');
+@import url('components/education.css');
+@import url('components/footer.css');

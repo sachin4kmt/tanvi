@@ -1,0 +1,190 @@
+.experience-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    width: 100%;
+}
+
+.experience-list .project-card {
+    padding: clamp(20px, 2vw, 28px);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 4px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    grid-template-columns: unset;
+    margin-bottom: 0;
+    transition: transform 0.35s var(--ease-smooth), border-color 0.35s ease, background 0.35s ease;
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.exp-title-box {
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.company-link {
+    color: var(--flutter-cyan);
+    font-weight: 800;
+    text-decoration: none;
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+    word-break: break-word;
+}
+
+.company-link i {
+    font-size: 0.8rem;
+    opacity: 0.5;
+    flex-shrink: 0;
+}
+
+.company-link:hover {
+    color: #fff;
+}
+
+.exp-role {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #fff;
+    margin-top: 8px;
+    margin-bottom: 0;
+    letter-spacing: 0.5px;
+    word-break: break-word;
+}
+
+.exp-duration {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+    max-width: 100%;
+}
+
+.exp-duration span {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--flutter-cyan);
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.exp-details-box {
+    border-left: 3px solid rgba(2, 123, 227, 0.3);
+    padding-left: 20px;
+    margin-top: 25px;
+}
+
+.exp-text {
+    color: #aaa;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    white-space: pre-line;
+    margin: 0;
+    word-break: break-word;
+}
+
+@media (min-width: 992px) {
+    .experience-list .project-card:hover {
+        border-left: 8px solid var(--flutter-cyan);
+        background: rgba(2, 123, 227, 0.06);
+        transform: translateY(-4px);
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .experience-list {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-list .project-card {
+        padding: 18px;
+        border-left-width: 4px;
+    }
+
+    .exp-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .exp-title-box {
+        flex: none;
+        width: 100%;
+    }
+
+    .exp-role {
+        margin-top: 6px;
+    }
+
+    .exp-duration {
+        align-self: flex-start;
+        padding: 6px 14px;
+        margin-top: 0;
+    }
+
+    .exp-details-box {
+        padding-left: 14px;
+        margin-top: 12px;
+    }
+
+    .exp-text {
+        font-size: 0.94rem;
+        line-height: 1.75;
+    }
+}
+
+@media (max-width: 480px) {
+    .experience-list .project-card {
+        padding: 16px;
+    }
+
+    .company-link {
+        font-size: clamp(1.2rem, 5vw, 1.5rem);
+    }
+
+    .exp-duration {
+        padding: 6px 12px;
+    }
+
+    .exp-details-box {
+        padding-left: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .experience-list .project-card {
+        padding: 16px 12px;
+    }
+
+    .exp-details-box {
+        padding-left: 10px;
+    }
+
+    .exp-duration span {
+        font-size: 0.75rem;
+    }
+}
+
+@media print {
+    .experience-list .project-card {
+        background: #000 !important;
+        border: 1px solid #333 !important;
+        page-break-inside: avoid;
+    }
+}

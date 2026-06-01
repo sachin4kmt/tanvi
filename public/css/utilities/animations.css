@@ -1,0 +1,66 @@
+/* Hero/header content is always visible — never wait for JS */
+.hero .reveal {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+}
+
+/* Scroll sections start hidden, animate in on scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(var(--reveal-y));
+    will-change: transform, opacity;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    will-change: auto;
+}
+
+/* AOS performance tuning */
+[data-aos] {
+    pointer-events: auto;
+}
+
+/* Stagger-ready skill cards */
+.skill-card-box.reveal {
+    transition: opacity 0.5s var(--ease-smooth), transform 0.5s var(--ease-smooth);
+}
+
+/* No-JS fallback: show everything */
+noscript .reveal,
+.reveal.no-js-visible {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Reduced motion: disable non-essential animations */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .reveal,
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .tech-card:hover,
+    .project-card:hover,
+    .skill-card-box:hover,
+    .edu-card:hover {
+        transform: none !important;
+    }
+}
+
+/* Touch devices: skip hover lift effects */
+@media (hover: none) and (pointer: coarse) {
+    .project-card:hover,
+    .skill-card-box:hover {
+        transform: none;
+    }
+}

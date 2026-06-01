@@ -1,14 +1,19 @@
 <%- include('partials/head') %>
 
-<main class="portfolio-main-stream">
-    <%- include('partials/hero') %>
-    <%- include('partials/projects') %>
-    <%- include('partials/skills') %>
-    <%- include('partials/experience') %>
-    <%- include('partials/education') %>
-    <%- include('partials/footer') %>
-</main>
+<body
+    data-share-title="<%= data.name %> | Portfolio"
+    data-share-text="<%= data.summary %>"
+>
+    <%- include('partials/header') %>
+    <div class="container">
+        <%- include('partials/hero') %>
+        <%- include('partials/projects') %>
+        <%- include('partials/skills') %>
+        <%- include('partials/experience') %>
+        <%- include('partials/education') %>
+        <%- include('partials/footer') %>
+    </div>
 
-<%- include('partials/scripts') %>
+    <%- include('partials/scripts') %>
 </body>
 </html>

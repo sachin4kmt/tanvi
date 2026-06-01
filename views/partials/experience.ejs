@@ -1,22 +1,19 @@
-<section style="margin-bottom: 60px; width: 100%; box-sizing: border-box;">
+<section id="experience" class="experience-section" data-aos="fade-up" data-aos-duration="800">
     <div class="container">
-        
-        <h2 class="section-title" style="font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 30px; display: flex; align-items: center; gap: 15px;">
-            <span style="color: var(--flutter-cyan);">03.</span> Experience 
+        <h2 class="section-title">
+            <span class="accent-num">03.</span> Experience
         </h2>
 
         <div class="experience-list">
             <% data.experience.forEach(function(exp, index) { %>
-                <div class="exp-card reveal">
-                    
+                <div class="project-card reveal" data-aos="fade-up" data-aos-duration="700" data-aos-delay="<%= index * 80 %>">
+
                     <div class="exp-header">
                         <div class="exp-title-box">
                             <a href="<%= exp.website %>" target="_blank" class="company-link">
-                                <span><%= exp.company %></span> <i class="fas fa-external-link-alt"></i>
+                                <%= exp.company %> <i class="fas fa-external-link-alt"></i>
                             </a>
-                            <p class="exp-role">
-                                <%= exp.role %>
-                            </p>
+                            <p class="exp-role"><%= exp.role %></p>
                         </div>
 
                         <div class="exp-duration">
@@ -25,183 +22,10 @@
                     </div>
 
                     <div class="exp-details-box">
-                        <p class="exp-text">
-                            <%= exp.details %>
-                        </p>
+                        <p class="exp-text"><%= exp.details %></p>
                     </div>
-
-                    <div class="card-glow"></div>
                 </div>
             <% }); %>
         </div>
-
     </div>
 </section>
-
-<style>
-    .experience-list {
-        display: flex; 
-        flex-direction: column; 
-        gap: 20px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    /* Base Card Style */
-    .exp-card {
-        padding: 30px; 
-        display: block; 
-        position: relative;
-        background: var(--bg-card, rgba(255, 255, 255, 0.02));
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-left: 4px solid rgba(255, 255, 255, 0.1);
-        border-radius: 16px;
-        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        overflow: hidden;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .exp-header {
-        display: flex; 
-        justify-content: space-between; 
-        align-items: flex-start; 
-        margin-bottom: 12px; 
-        flex-wrap: wrap; 
-        gap: 15px;
-        width: 100%;
-    }
-
-    .exp-title-box {
-        min-width: 0;
-        flex: 1;
-    }
-
-    .company-link {
-        color: var(--flutter-cyan); 
-        font-weight: 800; 
-        text-decoration: none; 
-        font-size: clamp(1.2rem, 3.5vw, 1.6rem); 
-        display: inline-flex; 
-        align-items: center; 
-        gap: 8px;
-        transition: var(--transition-smooth, all 0.3s ease);
-        max-width: 100%;
-        word-break: break-word;
-    }
-
-    .company-link span {
-        word-break: break-word;
-    }
-
-    .company-link i {
-        font-size: 0.75rem; 
-        opacity: 0.5;
-        flex-shrink: 0;
-    }
-
-    .company-link:hover {
-        color: var(--flutter-sky, #40D1FB) !important;
-    }
-
-    .exp-role {
-        font-weight: 700; 
-        font-size: 1.05rem; 
-        color: #fff; 
-        margin-top: 6px; 
-        letter-spacing: 0.5px;
-        word-break: break-word;
-    }
-
-    .exp-duration {
-        background: rgba(255, 255, 255, 0.04); 
-        padding: 8px 16px; 
-        border-radius: 10px; 
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        flex-shrink: 0;
-        white-space: nowrap;
-    }
-
-    .exp-duration span {
-        font-family: 'Space Mono', monospace; 
-        font-size: 0.8rem; 
-        color: var(--flutter-sky, #40D1FB); 
-        font-weight: bold;
-    }
-
-    .exp-details-box {
-        border-left: 3px solid rgba(2, 123, 227, 0.25); 
-        padding-left: 18px; 
-        margin-top: 20px;
-        box-sizing: border-box;
-    }
-
-    .exp-text {
-        color: #aaaaaa; 
-        font-size: 0.95rem; 
-        line-height: 1.7; 
-        white-space: pre-line;
-        word-break: break-word;
-    }
-
-    /* ==========================================
-       BREAKPOINTS & RESPONSIVE CONFIGS
-       ========================================== */
-
-    /* Desktop Hover Interactions */
-    @media (min-width: 992px) {
-        .exp-card:hover {
-            border-left-color: var(--flutter-cyan);
-            background: rgba(2, 123, 227, 0.03);
-            transform: translateX(8px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-    }
-
-    /* TABLET & PHONES RESPONSIVE SQUEEZE FIXES */
-    @media (max-width: 768px) {
-        .exp-card {
-            padding: 20px;
-        }
-        
-        .exp-header {
-            flex-direction: column;
-            align-items: stretch;
-            gap: 10px;
-        }
-
-        .exp-duration {
-            align-self: flex-start;
-            padding: 6px 12px;
-        }
-
-        .exp-details-box {
-            padding-left: 12px;
-            margin-top: 15px;
-        }
-
-        .exp-text {
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-    }
-
-    @media (max-width: 400px) {
-        .exp-card {
-            padding: 16px;
-            border-radius: 12px;
-        }
-        .exp-duration span {
-            font-size: 0.75rem;
-        }
-    }
-
-    /* PRINT SANITIZATION */
-    @media print {
-        .exp-card {
-            background: #000 !important;
-            border: 1px solid #333 !important;
-            page-break-inside: avoid;
-        }
-    }
-</style>

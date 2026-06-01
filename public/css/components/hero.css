@@ -1,0 +1,177 @@
+.hero {
+    padding: clamp(40px, 8vw, 80px) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: clamp(30px, 5vw, 60px);
+    align-items: center;
+}
+
+.hero .widget-label {
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    margin-bottom: 25px;
+}
+
+.hero-summary {
+    opacity: 0.8;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.hero-meta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 0.9rem;
+    font-family: 'Space Mono', monospace;
+}
+
+.meta-item i {
+    color: var(--flutter-cyan);
+    flex-shrink: 0;
+}
+
+.hero-btns {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+/* Tech card */
+.hero-visual {
+    position: relative;
+}
+
+.tech-card {
+    background: #0D0D0D;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: transform 0.5s var(--ease-out-expo);
+    width: 100%;
+    max-width: 100%;
+}
+
+@media (min-width: 992px) {
+    .tech-card:hover {
+        transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+    }
+}
+
+.card-header {
+    background: #1A1A1A;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #333;
+    display: inline-block;
+    margin-right: 2px;
+}
+
+.file-name {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.card-body {
+    padding: 25px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    overflow-x: auto;
+}
+
+.keyword { color: #C678DD; }
+.class-name { color: #E5C07B; }
+.string { color: #98C379; }
+
+.hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(1, 200, 255, 0.1) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .hero-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .hero-meta,
+    .hero-btns {
+        justify-content: center;
+    }
+
+    .hero-summary {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-visual {
+        order: -1;
+        max-width: 480px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-btns {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .btn-primary,
+    .btn-linkedin,
+    .btn-secondary-pdf,
+    .btn-share-profile {
+        width: 100%;
+    }
+
+    .hero-meta {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .card-body {
+        padding: 16px;
+        font-size: 0.8rem;
+    }
+}
